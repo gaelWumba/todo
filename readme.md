@@ -1,4 +1,4 @@
-# ✅ To-Do List - Gestionnaire de Tâches  
+# ✅ To-Do List - Gestionnaire de Tâches  - WUMBA BUATU Gaël
 
 Un gestionnaire de tâches simple en **HTML, TailwindCSS et JavaScript Vanilla**, utilisant **LocalStorage** pour la persistance des données.  
 
