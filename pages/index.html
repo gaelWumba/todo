@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>To-Do List</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-100">
+        <header id="header" class="hidden"> 
+            <nav class="dark:bg-gray-800 ">
+                <div class="max-w-screen-2xl px-4 mx-auto 2xl:px-0 py-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-8">
+                            <h1 class="text-lg text-white font-black underline decoration-pink-500">TODO</h1>
+                        </div>
+                        <div class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm font-medium leading-none text-gray-900 dark:text-white">
+                            <svg class="w-5 h-5 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-width="2" d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                            </svg>              
+                            <span id="user-name">Account</span> 
+                            <button onclick="logOut()" class="w-full bg-red-500 text-white p-2 ms-5 rounded">Se déconnecter</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section class="max-w-6xl mx-auto mt-10 p-5 bg-white shadow-lg rounded-lg">
+                <h1 id="main-title" class="text-xl text-center font-black underline decoration-pink-500">Tasks Manager</h1>
+
+                <!-- Formulaire d'inscription / Connexion -->
+                <div id="auth-section" class="grid grid-cols-2 gap-4 p-5">
+                    <div class="mt-20">
+                        <p>Vous n'avez pas encore de compte :</p>
+                        <h3 class="text-lg font-semibold mt-4">Inscription</h3>
+                        <input id="signup-username" type="text" placeholder="Nom d'utilisateur" class="w-full p-2 border rounded my-2">
+                        <input id="signup-password" type="password" placeholder="Mot de passe" class="w-full p-2 border rounded my-2">
+                        <button onclick="signUp()" class="w-full bg-blue-500 text-white py-2 rounded">S'inscrire</button>
+                    </div>
+                    
+                    <div class="mt-20">
+                        <p>Déjà inscri :</p>
+                        <h3 class="text-lg font-semibold mt-4">Connexion</h3>
+                        <input id="login-username" type="text" placeholder="Nom d'utilisateur" class="w-full p-2 border rounded my-2">
+                        <input id="login-password" type="password" placeholder="Mot de passe" class="w-full p-2 border rounded my-2">
+                        <button onclick="logIn()" class="w-full bg-green-500 text-white py-2 rounded">Se connecter</button>
+                    </div>
+                </div>
+                
+            </section>
+
+            <!-- Section Tâches (cachée lorsque l'utilisateur n'est pas connecté) -->
+            <section class="w-full mt-10 px-20">
+                <div id="task-section" class="grid grid-cols-2 gap-4 hidden">
+                    <div class="bg-white shadow-lg rounded-lg mt-20 p-6">
+                        <h3 class="text-lg font-semibold mt-4">Ajouter une tâche</h3>
+                        <input id="task-title" type="text" placeholder="Titre" class="w-full p-2 border rounded my-2">
+                        <input id="task-desc" type="text" placeholder="Description" class="w-full p-2 border rounded my-2">
+                        <input id="task-deadline" type="date" class="w-full p-2 border rounded my-2">
+                        <button onclick="addTask()" class="w-full bg-blue-500 text-white py-2 rounded">Ajouter</button>
+                    </div>
+                    <div class="bg-white shadow-lg rounded-lg mt-20 p-6">
+                        <h3 class="text-lg font-semibold mt-4">Liste des tâches</h3>
+                        <input id="search-task" type="text" placeholder="Rechercher..." class="w-full p-2 border rounded my-2" onkeyup="searchTask()">
+                        <ul id="task-list" class="mt-4 space-y-2"></ul>
+                    </div>
+                </div>
+            </section>
+        </main>        
+
+        <script src="../script/auth.js"></script>
+        <script src="../script/tasks.js"></script>
+    </body>
+</html>
+
+
