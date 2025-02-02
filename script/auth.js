@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     checkAuth();
 });
 
-// ✅ Fonction pour inscrire un utilisateur
+// Fonction pour inscrire un utilisateur
 function signUp() {
     let username = document.getElementById("signup-username").value;
     let password = document.getElementById("signup-password").value;
